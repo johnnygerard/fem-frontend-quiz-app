@@ -1,0 +1,72 @@
+{
+  "title": "CSS",
+  "icon": "./assets/images/icon-css.svg",
+  "challenges": [
+    {
+      "question": "What does CSS stand for?",
+      "answer": "Cascading Style Sheets",
+      "badAnswers": [
+        "Colorful Style Sheets",
+        "Computer Style Sheets",
+        "Creative Style Sheets"
+      ]
+    },
+    {
+      "question": "Which HTML attribute is used to define inline styles?",
+      "answer": "style",
+      "badAnswers": ["styles", "class", "font-style"]
+    },
+    {
+      "question": "How do you insert a comment in a CSS file?",
+      "answer": "/* this is a comment */",
+      "badAnswers": [
+        "// this is a comment //",
+        "-- this is a comment --",
+        "<!-- this is a comment -->"
+      ]
+    },
+    {
+      "question": "Which property is used to change the background color of an element?",
+      "answer": "background-color",
+      "badAnswers": ["color", "bgcolor", "background"]
+    },
+    {
+      "question": "How do you apply a style to all <p> elements?",
+      "answer": "p { }",
+      "badAnswers": [".p { }", "#p { }", "all.p { }"]
+    },
+    {
+      "question": "Which property is used to change the font of an element?",
+      "answer": "font-family",
+      "badAnswers": ["font-style", "text-style", "typeface"]
+    },
+    {
+      "question": "How do you make each word in a text start with a capital letter?",
+      "answer": "text-transform: capitalize",
+      "badAnswers": [
+        "text-transform: uppercase",
+        "text-style: capital",
+        "font-transform: capitalize"
+      ]
+    },
+    {
+      "question": "How do you select an element with the class name 'header'?",
+      "answer": ".header",
+      "badAnswers": ["#header", "header", "*header"]
+    },
+    {
+      "question": "What is the default value of the 'position' property?",
+      "answer": "static",
+      "badAnswers": ["relative", "fixed", "absolute"]
+    },
+    {
+      "question": "What is the purpose of the z-index property in CSS?",
+      "answer": "To specify the stack order of an element",
+      "badAnswers": [
+        "To count the number of elements",
+        "To set the magnification level of an element",
+        "To create a zoom effect"
+      ]
+    }
+  ]
+}
