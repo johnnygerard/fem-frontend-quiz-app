@@ -1,3 +1,4 @@
+import { AppRouterProvider } from "@/components/app-router-provider";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -47,7 +48,7 @@ const RootLayout = ({ children }: Props) => {
       lang="en-US"
     >
       <body>
-        {children}
+        <AppRouterProvider>{children}</AppRouterProvider>
         <noscript>
           <div
             style={{
