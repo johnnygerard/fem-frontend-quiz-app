@@ -1,4 +1,4 @@
-import NotFoundContent from "@/components/not-found-content";
+import AppLink from "@/components/app-link";
 import { Metadata } from "next";
 import { memo } from "react";
 
@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 const NotFound = () => {
   return (
     <div className="grid min-h-screen place-items-center">
-      <NotFoundContent />
+      <div className="text-center">
+        <h1>404 Not Found</h1>
+        <p>Sorry, the page you are looking for does not exist.</p>
+        <AppLink href="/">Back to Home</AppLink>
+      </div>
     </div>
   );
 };
