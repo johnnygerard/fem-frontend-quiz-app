@@ -19,10 +19,10 @@ type Props = Readonly<{
   children: ReactNode;
 }>;
 
-export const AppRouterProvider = memo(function AppRouterProvider({
-  children,
-}: Props) {
+const AppRouterProvider = ({ children }: Props) => {
   const router = useRouter();
 
   return <RouterProvider navigate={router.push}>{children}</RouterProvider>;
-});
+};
+
+export default memo(AppRouterProvider);
