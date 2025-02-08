@@ -13,8 +13,8 @@ const rubik = Rubik({
   weight: "variable",
 });
 
-const APP_NAME = "placeholder";
-const DESCRIPTION = "placeholder";
+const APP_NAME = "Frontend Quiz";
+const DESCRIPTION = "Frontend Mentor challenge: Frontend Quiz app";
 
 export const metadata: Metadata = {
   title: {
