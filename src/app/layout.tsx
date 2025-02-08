@@ -49,7 +49,7 @@ const RootLayout = ({ children }: Props) => {
       className={clsx(rubik.variable, "font-sans antialiased")}
       lang="en-US"
     >
-      <body>
+      <body className="bg-light-grey dark:bg-dark-navy">
         <AppRouterProvider>{children}</AppRouterProvider>
         <noscript>
           <div
