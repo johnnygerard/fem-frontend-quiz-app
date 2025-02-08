@@ -1,14 +1,16 @@
 import AppRouterProvider from "@/components/app-router-provider";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { memo, ReactNode } from "react";
 
-const geistSans = Geist({
+const rubik = Rubik({
   display: "swap",
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-rubik",
+  weight: "variable",
 });
 
 const APP_NAME = "placeholder";
@@ -44,7 +46,7 @@ type Props = Readonly<{
 const RootLayout = ({ children }: Props) => {
   return (
     <html
-      className={clsx(geistSans.variable, "font-sans antialiased")}
+      className={clsx(rubik.variable, "font-sans antialiased")}
       lang="en-US"
     >
       <body>
