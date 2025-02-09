@@ -7,6 +7,18 @@
   }
 }
 
+@custom-variant dark {
+  :root:not([data-theme]) & {
+    @media (prefers-color-scheme: dark) {
+      @slot;
+    }
+  }
+
+  :root[data-theme="dark"] & {
+    @slot;
+  }
+}
+
 @theme {
   --font-sans: var(--font-rubik);
 
