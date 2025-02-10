@@ -1,4 +1,5 @@
 "use client";
+import { THEME_ATTR, THEME_KEY } from "@/constants";
 import { ThemeContext } from "@/contexts/theme-context";
 import { THEME } from "@/types/theme";
 import { memo, ReactNode, useEffect, useState } from "react";
@@ -16,7 +17,6 @@ const ThemeProvider = ({ children, initialTheme }: Props) => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    const THEME_ATTR = "data-theme";
 
     switch (theme) {
       case THEME.LIGHT:
@@ -48,7 +48,7 @@ const ThemeProvider = ({ children, initialTheme }: Props) => {
 
     // Persist theme with a cookie
     window.document.cookie = [
-      `theme=${theme}`,
+      `${THEME_KEY}=${theme}`,
       `max-age=${365 * 24 * 60 * 60}`, // 1 year
       "secure",
       "path=/",
