@@ -1,5 +1,4 @@
 "use client";
-import { persistTheme } from "@/app/actions";
 import { ThemeContext } from "@/contexts/theme-context";
 import { THEME } from "@/types/theme";
 import { memo, ReactNode, useEffect, useState } from "react";
@@ -44,16 +43,22 @@ const ThemeProvider = ({ children, initialTheme }: Props) => {
     };
   }, [theme]);
 
+  const handleThemeChange = (theme: THEME): void => {
+    setTheme(theme);
+
+    // Persist theme with a cookie
+    window.document.cookie = [
+      `theme=${theme}`,
+      `max-age=${365 * 24 * 60 * 60}`, // 1 year
+      "secure",
+      "path=/",
+      "samesite=lax",
+    ].join("; ");
+  };
+
   return (
     <ThemeContext.Provider
-      value={{
-        systemTheme,
-        theme,
-        setTheme: async (theme: THEME) => {
-          setTheme(theme);
-          await persistTheme(theme);
-        },
-      }}
+      value={{ systemTheme, theme, setTheme: handleThemeChange }}
     >
       {children}
     </ThemeContext.Provider>
