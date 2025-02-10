@@ -1,17 +1,25 @@
+import { loadTheme } from "@/app/actions";
+import AppRouterProvider from "@/components/app-router-provider";
+import Background from "@/components/background-circles";
+import ThemeProvider from "@/components/theme-provider";
+import ThemeSwitcher from "@/components/theme-switcher";
+import { THEME } from "@/types/theme";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { memo, ReactNode } from "react";
 
-const geistSans = Geist({
+const rubik = Rubik({
   display: "swap",
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-rubik",
+  weight: "variable",
 });
 
-const APP_NAME = "placeholder";
-const DESCRIPTION = "placeholder";
+const APP_NAME = "Frontend Quiz";
+const DESCRIPTION = "Frontend Mentor challenge: Frontend Quiz app";
 
 export const metadata: Metadata = {
   title: {
@@ -40,14 +48,31 @@ type Props = Readonly<{
   children: ReactNode;
 }>;
 
-const RootLayout = ({ children }: Props) => {
+const RootLayout = async ({ children }: Props) => {
+  const theme = await loadTheme();
+
   return (
     <html
-      className={clsx(geistSans.variable, "font-sans antialiased")}
+      data-theme={theme === THEME.SYSTEM ? null : theme}
+      className={clsx(rubik.variable, "font-sans antialiased")}
       lang="en-US"
     >
-      <body>
-        {children}
+      <body
+        className={clsx(
+          "dt:py-20 dt:px-35 tb:py-10 tb:px-16 px-6 py-4",
+          "bg-light-grey dark:bg-dark-navy min-h-screen",
+        )}
+      >
+        <AppRouterProvider>
+          <ThemeProvider initialTheme={theme}>
+            <Background />
+            <header className="flex justify-between">
+              <div className="tb:h-14 h-10"></div>
+              <ThemeSwitcher />
+            </header>
+            <main>{children}</main>
+          </ThemeProvider>
+        </AppRouterProvider>
         <noscript>
           <div
             style={{
