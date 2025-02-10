@@ -1,6 +1,7 @@
 import { loadTheme } from "@/app/actions";
 import AppRouterProvider from "@/components/app-router-provider";
 import ThemeProvider from "@/components/theme-provider";
+import ThemeSwitcher from "@/components/theme-switcher";
 import { THEME } from "@/types/theme";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
@@ -55,9 +56,20 @@ const RootLayout = async ({ children }: Props) => {
       className={clsx(rubik.variable, "font-sans antialiased")}
       lang="en-US"
     >
-      <body className="bg-light-grey dark:bg-dark-navy">
+      <body
+        className={clsx(
+          "dt:py-20 dt:px-35 tb:py-10 tb:px-16 px-6 py-4",
+          "bg-light-grey dark:bg-dark-navy min-h-screen",
+        )}
+      >
         <AppRouterProvider>
-          <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+          <ThemeProvider initialTheme={theme}>
+            <header className="flex justify-between">
+              <div className="tb:h-14 h-10"></div>
+              <ThemeSwitcher />
+            </header>
+            <main>{children}</main>
+          </ThemeProvider>
         </AppRouterProvider>
         <noscript>
           <div
