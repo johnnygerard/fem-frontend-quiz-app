@@ -1,4 +1,7 @@
+import { loadTheme } from "@/app/actions";
 import AppRouterProvider from "@/components/app-router-provider";
+import ThemeProvider from "@/components/theme-provider";
+import { THEME } from "@/types/theme";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
@@ -43,14 +46,19 @@ type Props = Readonly<{
   children: ReactNode;
 }>;
 
-const RootLayout = ({ children }: Props) => {
+const RootLayout = async ({ children }: Props) => {
+  const theme = await loadTheme();
+
   return (
     <html
+      data-theme={theme === THEME.SYSTEM ? null : theme}
       className={clsx(rubik.variable, "font-sans antialiased")}
       lang="en-US"
     >
       <body className="bg-light-grey dark:bg-dark-navy">
-        <AppRouterProvider>{children}</AppRouterProvider>
+        <AppRouterProvider>
+          <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+        </AppRouterProvider>
         <noscript>
           <div
             style={{
