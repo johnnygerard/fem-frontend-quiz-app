@@ -29,19 +29,22 @@ const ThemeProvider = ({ children, initialTheme }: Props) => {
       default:
         ((_: never) => _)(theme);
     }
+  }, [theme]);
 
-    // Track system theme
+  // Initialize and track system theme
+  useEffect(() => {
     const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleSystemThemeChange = (event: MediaQueryListEvent) => {
       setSystemTheme(event.matches ? THEME.DARK : THEME.LIGHT);
     };
 
+    setSystemTheme(systemThemeQuery.matches ? THEME.DARK : THEME.LIGHT);
     systemThemeQuery.addEventListener("change", handleSystemThemeChange);
 
     return () => {
       systemThemeQuery.removeEventListener("change", handleSystemThemeChange);
     };
-  }, [theme]);
+  }, []);
 
   const handleThemeChange = (theme: THEME): void => {
     setTheme(theme);

@@ -3,7 +3,6 @@ import IconMoon from "@/components/svg/icon-moon";
 import IconSun from "@/components/svg/icon-sun";
 import { useAppTheme } from "@/hooks/use-app-theme";
 import { THEME } from "@/types/theme";
-import { clsx } from "clsx";
 import { memo } from "react";
 import { FocusRing } from "react-aria";
 import { Switch } from "react-aria-components";
@@ -27,12 +26,7 @@ const ThemeSwitcher = () => {
           }}
         >
           {/* Switch handle */}
-          <div
-            className={clsx(
-              "tb:w-5 tb:h-5 h-3 w-3 rounded-full bg-white",
-              isDark && "ml-auto",
-            )}
-          />
+          <div className="tb:w-5 tb:h-5 h-3 w-3 rounded-full bg-white dark:ml-auto" />
         </Switch>
       </FocusRing>
       <IconMoon className="tb:h-6 tb:w-6 h-4 w-4" />
