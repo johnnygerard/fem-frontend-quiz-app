@@ -20,6 +20,9 @@
 }
 
 @theme {
+  --breakpoint-tb: 48em;
+  --breakpoint-dt: 64em;
+
   --font-sans: var(--font-rubik);
 
   --color-purple: #a729f5;
@@ -31,4 +34,6 @@
   --color-light-bluish: #abc1e1;
   --color-green: #26d782;
   --color-red: #ee5454;
+
+  --spacing: 0.25rem;
 }
