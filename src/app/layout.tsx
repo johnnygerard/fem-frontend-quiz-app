@@ -1,6 +1,6 @@
 import { loadTheme } from "@/app/actions";
 import Background from "@/components/background-circles";
-import ThemeSwitcher from "@/components/theme-switcher";
+import Header from "@/components/header";
 import AppRouterProvider from "@/providers/app-router-provider";
 import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
@@ -66,10 +66,7 @@ const RootLayout = async ({ children }: Props) => {
         <AppRouterProvider>
           <ThemeProvider initialTheme={theme}>
             <Background />
-            <header className="flex justify-between">
-              <div className="tb:h-14 h-10"></div>
-              <ThemeSwitcher />
-            </header>
+            <Header />
             <main>{children}</main>
           </ThemeProvider>
         </AppRouterProvider>
