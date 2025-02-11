@@ -1,8 +1,8 @@
 import { loadTheme } from "@/app/actions";
-import AppRouterProvider from "@/components/app-router-provider";
 import Background from "@/components/background-circles";
-import ThemeProvider from "@/components/theme-provider";
 import ThemeSwitcher from "@/components/theme-switcher";
+import AppRouterProvider from "@/providers/app-router-provider";
+import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
