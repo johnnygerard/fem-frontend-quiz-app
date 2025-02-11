@@ -16,7 +16,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div className="text-grey-navy tb:gap-4 flex items-center gap-2 dark:text-white">
-      <IconSun className="tb:h-6 tb:w-6 h-4 w-4" />
+      <IconSun aria-hidden={true} className="tb:h-6 tb:w-6 h-4 w-4" />
       <FocusRing focusRingClass="ring-2 ring-black dark:ring-white">
         <Switch
           aria-label="Dark mode"
@@ -35,7 +35,7 @@ const ThemeSwitcher = () => {
           />
         </Switch>
       </FocusRing>
-      <IconMoon className="tb:h-6 tb:w-6 h-4 w-4" />
+      <IconMoon aria-hidden={true} className="tb:h-6 tb:w-6 h-4 w-4" />
     </div>
   );
 };
