@@ -11,9 +11,9 @@ To learn how to use a GitHub template repository, check out [Creating a reposito
 
 ### Frontend
 
-- **Framework**: [Next.js](https://nextjs.org/)
-- **UI Library**: [Radix UI](https://www.radix-ui.com/)
-- **Style**: [Tailwind CSS](https://tailwindcss.com/)
+- **React Framework**: [Next.js 15](https://nextjs.org/)
+- **Headless UI Library**: [React Aria](https://react-spectrum.adobe.com/react-aria/index.html)
+- **Style**: [Tailwind CSS 4](https://tailwindcss.com/)
 
 ### Backend
 
@@ -27,7 +27,7 @@ To learn how to use a GitHub template repository, check out [Creating a reposito
 ## Dev Environment & Tools
 
 - System: [Ubuntu](https://ubuntu.com/desktop)
-- Editor: [VS Code](https://code.visualstudio.com/)
+- Editor: [WebStorm](https://www.jetbrains.com/webstorm/)
 - Formatter: [Prettier](https://prettier.io/)
 - Linter: [ESLint](https://eslint.org/)
 - AI assistant: [GitHub Copilot](https://github.com/features/copilot)
