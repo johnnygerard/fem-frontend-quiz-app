@@ -27,9 +27,9 @@ const ThemeSwitcher = () => {
           }}
         >
           {/* Switch handle */}
-          <div
+          <span
             className={clsx(
-              "tb:w-5 tb:h-5 h-3 w-3 rounded-full bg-white dark:ml-[50%]",
+              "tb:w-5 tb:h-5 block h-3 w-3 rounded-full bg-white dark:ml-[50%]",
               "transition-[margin-left] duration-150 ease-in-out",
             )}
           />
