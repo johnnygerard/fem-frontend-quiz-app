@@ -1,5 +1,5 @@
+import Text from "@/components/text";
 import ThemeSwitcher from "@/components/theme-switcher";
-import { clsx } from "clsx";
 import Image from "next/image";
 import { memo } from "react";
 
@@ -25,14 +25,7 @@ const Header = ({ quiz }: Props) => {
             unoptimized
             alt=""
           />
-          <span
-            className={clsx(
-              "text-dark-navy dark:text-white",
-              "tb:text-[1.75rem] text-[1.125rem] leading-none font-medium",
-            )}
-          >
-            {quiz.title}
-          </span>
+          <Text>{quiz.title}</Text>
         </h1>
       ) : (
         // Layout placeholder
