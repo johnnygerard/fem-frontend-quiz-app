@@ -87,6 +87,7 @@ const RootLayout = async ({ children }: Props) => {
               color: "#d32f2f",
               borderBottom: "2px solid currentColor",
               textAlign: "center",
+              lineHeight: 1.5,
             }}
             role="alert"
           >
