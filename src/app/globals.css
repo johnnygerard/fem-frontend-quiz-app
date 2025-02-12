@@ -8,14 +8,16 @@
 }
 
 @custom-variant dark {
+  &:root[data-theme="dark"],
+  :root[data-theme="dark"] & {
+    @slot;
+  }
+
+  &:root:not([data-theme]),
   :root:not([data-theme]) & {
     @media (prefers-color-scheme: dark) {
       @slot;
     }
-  }
-
-  :root[data-theme="dark"] & {
-    @slot;
   }
 }
 
