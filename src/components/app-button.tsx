@@ -13,7 +13,7 @@ const AppButton = ({ children, ...props }: Props) => {
       {...props}
       className={clsx(
         "bg-purple tb:rounded-3xl tb:h-23 tb:p-8 h-14 w-full rounded-xl p-3",
-        "shadow hover:bg-(image:--white-overlay)",
+        "dark:shadow-dark shadow hover:bg-(image:--white-overlay)",
       )}
     >
       <Text className="text-white">{children}</Text>
