@@ -54,7 +54,11 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html
       data-theme={theme === THEME.SYSTEM ? null : theme}
-      className={clsx(rubik.variable, "font-sans antialiased")}
+      className={clsx(
+        rubik.variable,
+        "font-sans leading-none font-normal not-italic antialiased",
+        "text-dark-navy dark:text-white",
+      )}
       lang="en-US"
     >
       <body
