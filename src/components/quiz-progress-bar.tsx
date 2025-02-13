@@ -8,13 +8,13 @@ type Props = Readonly<{
 const QuizProgressBar = ({ percentage }: Props) => {
   return (
     <ProgressBar
-      className="dark:bg-navy h-4 w-full rounded-full bg-white p-1"
+      className="h-4 w-full rounded-full bg-white p-1 dark:bg-navy"
       aria-label="Quiz progress"
       value={percentage}
     >
       {/* Fill inside the track */}
       <div
-        className="bg-purple h-full rounded-full"
+        className="h-full rounded-full bg-purple"
         style={{ width: `${percentage}%` }}
       />
     </ProgressBar>

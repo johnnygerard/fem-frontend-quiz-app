@@ -6,7 +6,7 @@ const IconCross = (props: Props) => {
   return (
     <svg
       {...props}
-      className="tb:h-10 tb:w-10 h-8 w-8"
+      className="h-8 w-8 tb:h-10 tb:w-10"
       viewBox="0 0 32 32"
       fill="none"
     >

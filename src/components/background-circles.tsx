@@ -11,14 +11,14 @@ const BackgroundCircles = () => {
       <div
         aria-hidden={true}
         className={cn(
-          "tb:-left-135 tb:-top-111 dt:-top-103 -top-41 -left-150 border-[9rem]",
+          "-top-41 -left-150 border-[9rem] tb:-top-111 tb:-left-135 dt:-top-103",
           className,
         )}
       />
       {/* Circle in the lower right corner */}
       <div
         aria-hidden={true}
-        className={cn("dt:border-[9rem] -right-109 -bottom-92", className)}
+        className={cn("-right-109 -bottom-92 dt:border-[9rem]", className)}
       />
     </>
   );

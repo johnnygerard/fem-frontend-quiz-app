@@ -63,8 +63,8 @@ const RootLayout = async ({ children }: Props) => {
     >
       <body
         className={cn(
-          "dt:py-20 dt:px-35 tb:py-10 tb:px-16 px-6 py-4",
-          "bg-light-grey dark:bg-dark-navy min-h-screen",
+          "px-6 py-4 tb:px-16 tb:py-10 dt:px-35 dt:py-20",
+          "min-h-screen bg-light-grey dark:bg-dark-navy",
         )}
       >
         <AppRouterProvider>

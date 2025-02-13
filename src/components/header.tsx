@@ -14,10 +14,10 @@ const Header = ({ quiz }: Props) => {
   return (
     <header className="flex justify-between">
       {quiz ? (
-        <h1 className="tb:gap-6 flex items-center gap-4">
+        <h1 className="flex items-center gap-4 tb:gap-6">
           <Image
             aria-hidden="true"
-            className="tb:h-14 tb:w-14 h-10 w-10"
+            className="h-10 w-10 tb:h-14 tb:w-14"
             src={quiz.icon}
             width="40"
             height="40"
@@ -29,7 +29,7 @@ const Header = ({ quiz }: Props) => {
         </h1>
       ) : (
         // Layout placeholder
-        <div aria-hidden="true" className="tb:h-14 h-10" />
+        <div aria-hidden="true" className="h-10 tb:h-14" />
       )}
       <ThemeSwitcher />
     </header>
