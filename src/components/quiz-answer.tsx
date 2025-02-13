@@ -10,10 +10,10 @@ type Props = Readonly<{
   answer: string;
   index: number;
   isCorrect: boolean;
-  isSubmitted: boolean;
+  isReadOnly: boolean;
 }>;
 
-const QuizAnswer = ({ answer, index, isCorrect, isSubmitted }: Props) => {
+const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
   return (
     <Radio
       className={cn(
@@ -21,8 +21,8 @@ const QuizAnswer = ({ answer, index, isCorrect, isSubmitted }: Props) => {
         "tb:gap-8 tb:h-20 dt:h-23 dt:px-5 h-16 gap-4 px-3",
         "dark:bg-navy dark:shadow-dark flex items-center bg-white shadow",
         "selected:inset-ring-3 inset-ring-purple",
-        isSubmitted && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
-        !isSubmitted && "cursor-pointer",
+        isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
+        !isReadOnly && "cursor-pointer",
       )}
       value={answer}
     >
@@ -32,15 +32,15 @@ const QuizAnswer = ({ answer, index, isCorrect, isSubmitted }: Props) => {
             className={cn(
               "tb:h-14 tb:w-14 tb:rounded-xl h-10 w-10 rounded-md",
               "text-grey-navy bg-light-grey grid place-items-center",
-              !isSubmitted && isHovered && "text-purple bg-[#F6E7FF]",
+              !isReadOnly && isHovered && "text-purple bg-[#F6E7FF]",
               isSelected && "bg-purple text-white",
-              isSelected && isSubmitted && (isCorrect ? "bg-green" : "bg-red"),
+              isSelected && isReadOnly && (isCorrect ? "bg-green" : "bg-red"),
             )}
           >
             {indexToLetter(index)}
           </Text>
           <Text className="flex-1">{answer}</Text>
-          {isSubmitted &&
+          {isReadOnly &&
             (isCorrect ? <IconCheckMark /> : isSelected && <IconCross />)}
         </>
       )}
