@@ -1,3 +1,4 @@
+import AppFocusRing from "@/components/app-focus-ring";
 import IconCheckMark from "@/components/svg/icon-check-mark";
 import IconCross from "@/components/svg/icon-cross";
 import Text from "@/components/text";
@@ -15,36 +16,38 @@ type Props = Readonly<{
 
 const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
   return (
-    <Radio
-      className={cn(
-        "rounded-xl tb:rounded-3xl",
-        "h-16 gap-4 px-3 tb:h-20 tb:gap-8 dt:h-23 dt:px-5",
-        "flex items-center bg-white shadow dark:bg-navy dark:shadow-dark",
-        "inset-ring-purple selected:inset-ring-3",
-        isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
-        !isReadOnly && "cursor-pointer",
-      )}
-      value={answer}
-    >
-      {({ isHovered, isSelected }) => (
-        <>
-          <Text
-            className={cn(
-              "h-10 w-10 rounded-md tb:h-14 tb:w-14 tb:rounded-xl",
-              "grid place-items-center bg-light-grey text-grey-navy",
-              !isReadOnly && isHovered && "bg-[#F6E7FF] text-purple",
-              isSelected && "bg-purple text-white",
-              isSelected && isReadOnly && (isCorrect ? "bg-green" : "bg-red"),
-            )}
-          >
-            {indexToLetter(index)}
-          </Text>
-          <Text className="flex-1">{answer}</Text>
-          {isReadOnly &&
-            (isCorrect ? <IconCheckMark /> : isSelected && <IconCross />)}
-        </>
-      )}
-    </Radio>
+    <AppFocusRing>
+      <Radio
+        className={cn(
+          "rounded-xl tb:rounded-3xl",
+          "h-16 gap-4 px-3 tb:h-20 tb:gap-8 dt:h-23 dt:px-5",
+          "flex items-center bg-white shadow dark:bg-navy dark:shadow-dark",
+          "inset-ring-purple selected:inset-ring-3",
+          isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
+          !isReadOnly && "cursor-pointer",
+        )}
+        value={answer}
+      >
+        {({ isHovered, isSelected }) => (
+          <>
+            <Text
+              className={cn(
+                "h-10 w-10 rounded-md tb:h-14 tb:w-14 tb:rounded-xl",
+                "grid place-items-center bg-light-grey text-grey-navy",
+                !isReadOnly && isHovered && "bg-[#F6E7FF] text-purple",
+                isSelected && "bg-purple text-white",
+                isSelected && isReadOnly && (isCorrect ? "bg-green" : "bg-red"),
+              )}
+            >
+              {indexToLetter(index)}
+            </Text>
+            <Text className="flex-1">{answer}</Text>
+            {isReadOnly &&
+              (isCorrect ? <IconCheckMark /> : isSelected && <IconCross />)}
+          </>
+        )}
+      </Radio>
+    </AppFocusRing>
   );
 };
 
