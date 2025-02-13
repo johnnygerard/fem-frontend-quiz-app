@@ -1,4 +1,4 @@
-export type Quiz = Readonly<{
+export type QuizData = Readonly<{
   title: string;
   icon: string;
   challenges: readonly SingleAnswerChallenge[];
