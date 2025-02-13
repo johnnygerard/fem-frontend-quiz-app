@@ -1,11 +1,11 @@
 "use client";
+import AppFocusRing from "@/components/app-focus-ring";
 import IconMoon from "@/components/svg/icon-moon";
 import IconSun from "@/components/svg/icon-sun";
 import { useAppTheme } from "@/hooks/use-app-theme";
 import { THEME } from "@/types/theme";
 import { cn } from "@/utils/cn";
 import { memo } from "react";
-import { FocusRing } from "react-aria";
 import { Switch } from "react-aria-components";
 
 const ThemeSwitcher = () => {
@@ -17,7 +17,7 @@ const ThemeSwitcher = () => {
   return (
     <div className="flex items-center gap-2 text-grey-navy tb:gap-4 dark:text-white">
       <IconSun aria-hidden={true} className="h-4 w-4 tb:h-6 tb:w-6" />
-      <FocusRing focusRingClass="ring-2 ring-black dark:ring-white">
+      <AppFocusRing>
         <Switch
           aria-label="Dark mode"
           className="h-5 w-8 cursor-pointer rounded-full bg-purple p-1 tb:h-7 tb:w-12"
@@ -34,7 +34,7 @@ const ThemeSwitcher = () => {
             )}
           />
         </Switch>
-      </FocusRing>
+      </AppFocusRing>
       <IconMoon aria-hidden={true} className="h-4 w-4 tb:h-6 tb:w-6" />
     </div>
   );
