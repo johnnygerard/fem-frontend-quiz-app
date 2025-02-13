@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import AppRouterProvider from "@/providers/app-router-provider";
 import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
-import { clsx } from "clsx";
+import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
@@ -54,7 +54,7 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html
       data-theme={theme === THEME.SYSTEM ? null : theme}
-      className={clsx(
+      className={cn(
         rubik.variable,
         "font-sans leading-none font-normal not-italic antialiased",
         "text-dark-navy dark:text-white",
@@ -62,7 +62,7 @@ const RootLayout = async ({ children }: Props) => {
       lang="en-US"
     >
       <body
-        className={clsx(
+        className={cn(
           "dt:py-20 dt:px-35 tb:py-10 tb:px-16 px-6 py-4",
           "bg-light-grey dark:bg-dark-navy min-h-screen",
         )}

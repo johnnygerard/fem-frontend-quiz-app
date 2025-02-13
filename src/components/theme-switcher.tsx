@@ -3,7 +3,7 @@ import IconMoon from "@/components/svg/icon-moon";
 import IconSun from "@/components/svg/icon-sun";
 import { useAppTheme } from "@/hooks/use-app-theme";
 import { THEME } from "@/types/theme";
-import { clsx } from "clsx";
+import { cn } from "@/utils/cn";
 import { memo } from "react";
 import { FocusRing } from "react-aria";
 import { Switch } from "react-aria-components";
@@ -28,7 +28,7 @@ const ThemeSwitcher = () => {
         >
           {/* Switch handle */}
           <span
-            className={clsx(
+            className={cn(
               "tb:w-5 tb:h-5 block h-3 w-3 rounded-full bg-white dark:ml-[50%]",
               "transition-[margin-left] duration-150 ease-in-out",
             )}

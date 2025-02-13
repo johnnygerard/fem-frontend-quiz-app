@@ -1,4 +1,4 @@
-import { clsx } from "clsx";
+import { cn } from "@/utils/cn";
 import { memo } from "react";
 
 const VARIANT = {
@@ -19,8 +19,7 @@ type Props = Readonly<{
 const Text = ({ children, className, variant = VARIANT.BASE }: Props) => {
   return (
     <span
-      className={clsx(
-        className,
+      className={cn(
         {
           [VARIANT.SM]: "tb:text-[1.25rem] text-[0.875rem]/[1.5] italic",
           [VARIANT.BASE]: "tb:text-[1.75rem] text-[1.125rem] font-medium",
@@ -29,6 +28,7 @@ const Text = ({ children, className, variant = VARIANT.BASE }: Props) => {
           [VARIANT.XL_BOLD]: "tb:text-[4rem] text-[2.5rem] font-medium",
           [VARIANT.ERROR]: "text-red tb:text-[1.5rem] text-[1.125rem]",
         }[variant],
+        className,
       )}
     >
       {children}
