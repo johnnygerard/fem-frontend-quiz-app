@@ -3,13 +3,13 @@ import QuizAnswer from "@/components/quiz-answer";
 import IconCross from "@/components/svg/icon-cross";
 import Text from "@/components/text";
 import { cn } from "@/utils/cn";
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { FieldError, Form, RadioGroup } from "react-aria-components";
 
 type Props = Readonly<{
   answers: readonly string[];
   correctAnswer: string;
-  handleSubmission: () => void;
+  handleSubmission: (answer?: string) => void;
   isReadOnly: boolean;
   formKey: number;
 }>;
@@ -21,13 +21,15 @@ const QuizForm = ({
   isReadOnly,
   formKey,
 }: Props) => {
+  const selectedAnswer = useRef("");
+
   return (
     <Form
       key={formKey}
       className="relative mb-11 tb:mb-18"
       onSubmit={(event) => {
         event.preventDefault();
-        handleSubmission();
+        handleSubmission(isReadOnly ? undefined : selectedAnswer.current);
       }}
     >
       <RadioGroup
@@ -35,6 +37,9 @@ const QuizForm = ({
         aria-label="Quiz Answers"
         isRequired
         isReadOnly={isReadOnly}
+        onChange={(value: string) => {
+          selectedAnswer.current = value;
+        }}
       >
         {answers.map((answer, index) => (
           <QuizAnswer

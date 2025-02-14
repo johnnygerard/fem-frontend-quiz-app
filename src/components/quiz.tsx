@@ -13,6 +13,8 @@ type Props = Readonly<{
 }>;
 
 const Quiz = ({ firstChallenge, challenges }: Props) => {
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(firstChallenge.answers);
   const [correctAnswer, setCorrectAnswer] = useState(
@@ -23,29 +25,39 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
   // multiple focus issues.
   const [formKey, setFormKey] = useState(0);
 
-  const handleSubmission = () => {
+  const handleSubmission = (answer?: string): void => {
     if (isReadOnly) {
       const nextIndex = questionIndex + 1;
+
+      if (nextIndex === challenges.length) {
+        setShowScore(true);
+        return;
+      }
+
       const nextChallenge = challenges[nextIndex];
 
       setQuestionIndex(nextIndex);
       setCorrectAnswer(nextChallenge.answer);
       setAnswers(shuffle([nextChallenge.answer, ...nextChallenge.badAnswers]));
       setFormKey((value) => value + 1);
-    }
+    } else if (answer === correctAnswer) setScore((value) => value + 1);
 
     setIsReadOnly((value) => !value);
   };
 
   return (
     <div>
-      <QuizForm
-        answers={answers}
-        correctAnswer={correctAnswer}
-        isReadOnly={isReadOnly}
-        handleSubmission={handleSubmission}
-        formKey={formKey}
-      />
+      {showScore ? (
+        `Score: ${score}/${challenges.length}`
+      ) : (
+        <QuizForm
+          answers={answers}
+          correctAnswer={correctAnswer}
+          isReadOnly={isReadOnly}
+          handleSubmission={handleSubmission}
+          formKey={formKey}
+        />
+      )}
     </div>
   );
 };
