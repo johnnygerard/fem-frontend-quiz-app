@@ -25,18 +25,21 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
           "inset-ring-purple selected:inset-ring-3",
           isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
           !isReadOnly && "cursor-pointer",
+          !isReadOnly && "selected:outline-none",
         )}
-        autoFocus={index === 0}
+        autoFocus={!isReadOnly && index === 0}
         value={answer}
         onKeyDown={() => {}} // Enable form submission when pressing Enter key
       >
-        {({ isHovered, isSelected }) => (
+        {({ isFocusVisible, isHovered, isSelected }) => (
           <>
             <Text
               className={cn(
                 "h-10 w-10 rounded-md tb:h-14 tb:w-14 tb:rounded-xl",
                 "grid place-items-center bg-light-grey text-grey-navy",
-                !isReadOnly && isHovered && "bg-[#F6E7FF] text-purple",
+                !isReadOnly &&
+                  (isHovered || isFocusVisible) &&
+                  "bg-[#F6E7FF] text-purple",
                 isSelected && "bg-purple text-white",
                 isSelected && isReadOnly && (isCorrect ? "bg-green" : "bg-red"),
               )}
