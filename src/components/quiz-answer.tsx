@@ -26,6 +26,7 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
           isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
           !isReadOnly && "cursor-pointer",
         )}
+        autoFocus={index === 0}
         value={answer}
         onKeyDown={() => {}} // Enable form submission when pressing Enter key
       >
