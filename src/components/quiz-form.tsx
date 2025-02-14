@@ -11,6 +11,7 @@ type Props = Readonly<{
   correctAnswer: string;
   handleSubmission: () => void;
   isReadOnly: boolean;
+  radioGroupKey: number;
 }>;
 
 const QuizForm = ({
@@ -18,6 +19,7 @@ const QuizForm = ({
   correctAnswer,
   handleSubmission,
   isReadOnly,
+  radioGroupKey,
 }: Props) => {
   return (
     <Form
@@ -28,6 +30,7 @@ const QuizForm = ({
       }}
     >
       <RadioGroup
+        key={radioGroupKey}
         className="flex flex-col gap-3 tb:gap-6"
         aria-label="Quiz Answers"
         isRequired

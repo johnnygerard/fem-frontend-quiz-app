@@ -19,6 +19,9 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
     firstChallenge.correctAnswer,
   );
   const [isReadOnly, setIsReadOnly] = useState(false);
+  // This key is used as a workaround to remount the radio group and reset the
+  // `tabindex` attribute of each radio input.
+  const [radioGroupKey, setRadioGroupKey] = useState(0);
 
   const handleSubmission = () => {
     if (isReadOnly) {
@@ -28,6 +31,7 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
       setQuestionIndex(nextIndex);
       setCorrectAnswer(nextChallenge.answer);
       setAnswers(shuffle([nextChallenge.answer, ...nextChallenge.badAnswers]));
+      setRadioGroupKey((value) => value + 1);
     }
 
     setIsReadOnly((value) => !value);
@@ -40,6 +44,7 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
         correctAnswer={correctAnswer}
         isReadOnly={isReadOnly}
         handleSubmission={handleSubmission}
+        radioGroupKey={radioGroupKey}
       />
     </div>
   );
