@@ -27,6 +27,7 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
           !isReadOnly && "cursor-pointer",
         )}
         value={answer}
+        onKeyDown={() => {}} // Enable form submission when pressing Enter key
       >
         {({ isHovered, isSelected }) => (
           <>
