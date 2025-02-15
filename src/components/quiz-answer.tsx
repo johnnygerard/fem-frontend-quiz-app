@@ -2,6 +2,7 @@ import AppFocusRing from "@/components/app-focus-ring";
 import IconCheckMark from "@/components/svg/icon-check-mark";
 import IconCross from "@/components/svg/icon-cross";
 import Text from "@/components/text";
+import { TW_SHADOW } from "@/constants";
 import { cn } from "@/utils/cn";
 import { indexToLetter } from "@/utils/index-to-letter";
 import { memo } from "react";
@@ -21,11 +22,12 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
         className={cn(
           "rounded-xl tb:rounded-3xl",
           "h-16 gap-4 px-3 tb:h-20 tb:gap-8 dt:h-23 dt:px-5",
-          "flex items-center bg-white shadow dark:bg-navy dark:shadow-dark",
+          "flex items-center bg-white dark:bg-navy",
           "inset-ring-purple selected:inset-ring-3",
           isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
           !isReadOnly && "cursor-pointer",
           !isReadOnly && "selected:outline-none",
+          TW_SHADOW,
         )}
         autoFocus={!isReadOnly && index === 0}
         value={answer}
