@@ -9,22 +9,29 @@ type Props = Readonly<{
   quizMetadataList: QuizMetadata[];
 }>;
 
+const getQuizMetadata = (
+  pathname: string,
+  quizMetadataList: QuizMetadata[],
+) => {
+  const match = pathname.match(/^\/quiz\/([^/]+)\/?$/);
+
+  return (
+    match && (quizMetadataList.find((quiz) => match[1] === quiz.slug) ?? null)
+  );
+};
+
 const QuizMetadataProvider = ({ quizMetadataList, children }: Props) => {
   const pathname = usePathname();
 
   const [quizMetadata, setQuizMetadata] = useState({
     quizMetadataList,
-    quizMetadata: null as QuizMetadata | null,
+    quizMetadata: getQuizMetadata(pathname, quizMetadataList),
   });
 
   useEffect(() => {
-    const match = pathname.match(/^\/quiz\/([^/]+)\/?$/);
-
     setQuizMetadata({
       quizMetadataList,
-      quizMetadata:
-        match &&
-        (quizMetadataList.find((quiz) => match[1] === quiz.slug) ?? null),
+      quizMetadata: getQuizMetadata(pathname, quizMetadataList),
     });
   }, [pathname, quizMetadataList]);
 
