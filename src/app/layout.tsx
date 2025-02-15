@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       rel: "icon",
       sizes: "32x32",
       type: "image/png",
-      url: "/images/favicon-32x32.png",
+      url: "/image/favicon-32x32.png",
     },
   ],
   openGraph: {
