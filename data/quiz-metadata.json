@@ -1,18 +1,18 @@
 [
   {
-    "slug": "accessibility",
-    "title": "Accessibility"
+    "slug": "html",
+    "title": "HTML"
   },
   {
     "slug": "css",
     "title": "CSS"
   },
   {
-    "slug": "html",
-    "title": "HTML"
-  },
-  {
     "slug": "javascript",
     "title": "JavaScript"
+  },
+  {
+    "slug": "accessibility",
+    "title": "Accessibility"
   }
 ]
