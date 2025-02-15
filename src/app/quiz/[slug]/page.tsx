@@ -7,6 +7,7 @@ import { join } from "node:path";
 import { cwd } from "node:process";
 import { memo } from "react";
 
+// Dynamic segments not included in generateStaticParams will return a 404.
 export const dynamicParams = false;
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
