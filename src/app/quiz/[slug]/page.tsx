@@ -32,7 +32,7 @@ const Page = async ({ params }: Props) => {
 
   if (metadata === undefined) throw new Error("Quiz not found");
 
-  const json = await readFile(join(cwd(), metadata.data), "utf8");
+  const json = await readFile(join(cwd(), `data/quiz/${slug}.json`), "utf8");
   const challenges = shuffle(JSON.parse(json) as QuizData);
   const { correctAnswer, incorrectAnswers } = challenges[0];
 
