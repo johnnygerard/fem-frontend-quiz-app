@@ -28,7 +28,7 @@
 
 @theme {
   --breakpoint-tb: 48em;
-  --breakpoint-dt: 64em;
+  --breakpoint-dt: 90em;
 
   --font-sans: var(--font-rubik);
 
