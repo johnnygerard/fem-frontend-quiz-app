@@ -16,7 +16,6 @@ const QuizDisplay = ({ quizMetadata }: Props) => {
         src={`/image/icon/${quizMetadata.slug}.svg`}
         width="40"
         height="40"
-        priority
         unoptimized
         alt=""
       />
