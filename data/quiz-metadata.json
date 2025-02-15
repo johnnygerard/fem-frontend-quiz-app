@@ -1,0 +1,26 @@
+[
+  {
+    "data": "/data/quiz/accessibility.json",
+    "icon": "/image/icon/accessibility.svg",
+    "slug": "accessibility",
+    "title": "Accessibility"
+  },
+  {
+    "data": "/data/quiz/css.json",
+    "icon": "/image/icon/css.svg",
+    "slug": "css",
+    "title": "CSS"
+  },
+  {
+    "data": "/data/quiz/html.json",
+    "icon": "/image/icon/html.svg",
+    "slug": "html",
+    "title": "HTML"
+  },
+  {
+    "data": "/data/quiz/javascript.json",
+    "icon": "/image/icon/javascript.svg",
+    "slug": "javascript",
+    "title": "JavaScript"
+  }
+]

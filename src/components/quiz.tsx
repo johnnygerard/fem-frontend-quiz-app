@@ -9,7 +9,7 @@ type Props = Readonly<{
     correctAnswer: string;
     answers: string[];
   };
-  challenges: QuizData["challenges"];
+  challenges: QuizData;
 }>;
 
 const Quiz = ({ firstChallenge, challenges }: Props) => {
@@ -34,11 +34,11 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
         return;
       }
 
-      const nextChallenge = challenges[nextIndex];
+      const { correctAnswer, incorrectAnswers } = challenges[nextIndex];
 
       setQuestionIndex(nextIndex);
-      setCorrectAnswer(nextChallenge.answer);
-      setAnswers(shuffle([nextChallenge.answer, ...nextChallenge.badAnswers]));
+      setCorrectAnswer(correctAnswer);
+      setAnswers(shuffle([correctAnswer, ...incorrectAnswers]));
       setFormKey((value) => value + 1);
     } else if (answer === correctAnswer) setScore((value) => value + 1);
 

@@ -1,11 +1,7 @@
-export type QuizData = Readonly<{
-  title: string;
-  icon: string;
-  challenges: SingleAnswerChallenge[];
-}>;
-
 type SingleAnswerChallenge = Readonly<{
   question: string;
-  answer: string;
-  badAnswers: string[];
+  correctAnswer: string;
+  incorrectAnswers: readonly string[];
 }>;
+
+export type QuizData = SingleAnswerChallenge[];
