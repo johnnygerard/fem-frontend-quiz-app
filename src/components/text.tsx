@@ -21,8 +21,10 @@ const Text = ({ children, className, variant = VARIANT.BASE }: Props) => {
     <span
       className={cn(
         {
-          [VARIANT.SM]:
-            "text-[0.875rem]/[1.5] text-grey-navy italic tb:text-[1.25rem] dark:text-light-bluish",
+          [VARIANT.SM]: cn(
+            "text-[0.875rem]/[1.5] italic tb:text-[1.25rem]",
+            "text-grey-navy dark:text-light-bluish",
+          ),
           [VARIANT.BASE]: "text-[1.125rem] font-medium tb:text-[1.75rem]",
           [VARIANT.LG]: "text-[1.25rem]/[1.2] font-medium tb:text-[2.25rem]",
           [VARIANT.XL]: "text-[2.5rem] font-light tb:text-[4rem]",
