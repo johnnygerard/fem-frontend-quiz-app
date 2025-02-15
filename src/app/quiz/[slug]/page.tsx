@@ -1,6 +1,6 @@
 import Quiz from "@/components/quiz";
 import { QuizData } from "@/types/quiz-data";
-import { QuizMetadata } from "@/types/quiz-metadata";
+import { readQuizMetadata } from "@/utils/read-quiz-metadata";
 import { shuffle } from "@/utils/shuffle";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -8,13 +8,6 @@ import { cwd } from "node:process";
 import { memo } from "react";
 
 export const dynamicParams = false;
-
-const readQuizMetadata = async (): Promise<QuizMetadata[]> => {
-  const path = join(cwd(), "data/quiz-metadata.json");
-  const json = await readFile(path, "utf8");
-
-  return JSON.parse(json);
-};
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   return (await readQuizMetadata()).map(({ slug }) => ({ slug }));
@@ -32,7 +25,8 @@ const Page = async ({ params }: Props) => {
 
   if (metadata === undefined) throw new Error("Quiz not found");
 
-  const json = await readFile(join(cwd(), `data/quiz/${slug}.json`), "utf8");
+  const path = join(cwd(), `data/quiz/${slug}.json`);
+  const json = await readFile(path, "utf8");
   const challenges = shuffle(JSON.parse(json) as QuizData);
   const { correctAnswer, incorrectAnswers } = challenges[0];
 
