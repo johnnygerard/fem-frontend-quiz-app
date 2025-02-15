@@ -15,8 +15,8 @@ const QuizList = ({ list }: Props) => {
         <li key={slug}>
           <AppLink
             className={cn(
-              "flex items-center gap-4 bg-white p-3 tb:gap-8 dt:p-5",
-              "rounded-xl tb:rounded-3xl",
+              "flex items-center gap-4 p-3 tb:gap-8 dt:p-5",
+              "rounded-xl bg-white tb:rounded-3xl dark:bg-navy",
             )}
             href={`/quiz/${slug}`}
           >
