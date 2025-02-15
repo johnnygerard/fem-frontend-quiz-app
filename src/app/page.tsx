@@ -1,8 +1,8 @@
 "use client";
 import { memo } from "react";
 
-const HomePage = () => {
+const Page = () => {
   return null;
 };
 
-export default memo(HomePage);
+export default memo(Page);
