@@ -2,6 +2,7 @@ import { loadTheme } from "@/app/actions";
 import Background from "@/components/background-circles";
 import Header from "@/components/header";
 import AppRouterProvider from "@/providers/app-router-provider";
+import QuizMetadataProvider from "@/providers/quiz-metadata-provider";
 import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
 import { cn } from "@/utils/cn";
@@ -69,9 +70,11 @@ const RootLayout = async ({ children }: Props) => {
       >
         <AppRouterProvider>
           <ThemeProvider initialTheme={theme}>
-            <Background />
-            <Header />
-            <main>{children}</main>
+            <QuizMetadataProvider>
+              <Background />
+              <Header />
+              <main>{children}</main>
+            </QuizMetadataProvider>
           </ThemeProvider>
         </AppRouterProvider>
         <noscript>
