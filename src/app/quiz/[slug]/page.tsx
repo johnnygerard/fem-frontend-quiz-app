@@ -1,6 +1,6 @@
 import Quiz from "@/components/quiz";
 import { QuizData } from "@/types/quiz-data";
-import { readQuizMetadata } from "@/utils/read-quiz-metadata";
+import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import { shuffle } from "@/utils/shuffle";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -11,7 +11,7 @@ import { memo } from "react";
 export const dynamicParams = false;
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
-  return (await readQuizMetadata()).map(({ slug }) => ({ slug }));
+  return (await readQuizMetadataList()).map(({ slug }) => ({ slug }));
 };
 
 type Props = Readonly<{
@@ -20,7 +20,7 @@ type Props = Readonly<{
 
 const Page = async ({ params }: Props) => {
   const slug = (await params).slug;
-  const metadata = (await readQuizMetadata()).find(
+  const metadata = (await readQuizMetadataList()).find(
     (metadata) => metadata.slug === slug,
   );
 

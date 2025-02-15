@@ -3,8 +3,8 @@ import { createContext } from "react";
 
 export const QuizMetadataContext = createContext<
   | {
+      quizMetadataList: QuizMetadata[];
       quizMetadata: QuizMetadata | null;
-      setQuizMetadata: (quizMetadata: QuizMetadata | null) => void;
     }
   | undefined
 >(undefined);

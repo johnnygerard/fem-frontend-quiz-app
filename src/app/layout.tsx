@@ -6,6 +6,7 @@ import QuizMetadataProvider from "@/providers/quiz-metadata-provider";
 import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
 import { cn } from "@/utils/cn";
+import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
@@ -51,6 +52,7 @@ type Props = Readonly<{
 
 const RootLayout = async ({ children }: Props) => {
   const theme = await loadTheme();
+  const quizMetadataList = await readQuizMetadataList();
 
   return (
     <html
@@ -70,7 +72,7 @@ const RootLayout = async ({ children }: Props) => {
       >
         <AppRouterProvider>
           <ThemeProvider initialTheme={theme}>
-            <QuizMetadataProvider>
+            <QuizMetadataProvider quizMetadataList={quizMetadataList}>
               <Background />
               <Header />
               <main>{children}</main>
