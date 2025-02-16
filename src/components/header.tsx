@@ -8,7 +8,7 @@ const Header = () => {
   const { quizMetadata } = useContextQuizMetadata();
 
   return (
-    <header className="flex justify-between">
+    <header className="mb-12 flex justify-between dt:mb-21">
       {quizMetadata ? (
         <h1 className="flex items-center gap-4 tb:gap-6">
           <QuizDisplay quizMetadata={quizMetadata} />

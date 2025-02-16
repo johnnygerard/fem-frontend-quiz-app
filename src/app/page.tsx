@@ -10,8 +10,8 @@ const Page = async () => {
   return (
     <div
       className={cn(
-        "mt-12 dt:mt-21",
-        "flex justify-between gap-10 max-dt:flex-col tb:gap-16 dt:gap-0",
+        "flex justify-between max-dt:flex-col",
+        "gap-10 tb:gap-16 dt:gap-0",
       )}
     >
       <hgroup>
