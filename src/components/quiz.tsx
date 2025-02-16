@@ -1,6 +1,7 @@
 "use client";
 import QuizChallenge from "@/components/quiz-challenge";
 import QuizForm from "@/components/quiz-form";
+import QuizScore from "@/components/quiz-score";
 import Text from "@/components/text";
 import { QuizData } from "@/types/quiz-data";
 import { cn } from "@/utils/cn";
@@ -69,7 +70,7 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
       )}
       <div className="dt:w-141">
         {showScore ? (
-          <p>{`Score: ${score}/${challenges.length}`}</p>
+          <QuizScore score={score} totalQuestions={challenges.length} />
         ) : (
           <QuizForm
             answers={answers}
