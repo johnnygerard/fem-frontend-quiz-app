@@ -26,7 +26,6 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
           "inset-ring-purple selected:inset-ring-3",
           isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
           !isReadOnly && "cursor-pointer",
-          !isReadOnly && "selected:outline-none",
           TW_SHADOW,
         )}
         autoFocus={!isReadOnly && index === 0}
