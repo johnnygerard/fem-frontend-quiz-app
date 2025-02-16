@@ -66,7 +66,7 @@ const RootLayout = async ({ children }: Props) => {
     >
       <body
         className={cn(
-          "min-w-fit px-6 py-4 tb:px-16 tb:py-10 dt:px-35 dt:py-20",
+          "min-w-min px-6 py-4 tb:px-16 tb:py-10 dt:px-35 dt:py-20",
           "bg-light-grey dark:bg-dark-navy",
         )}
       >
