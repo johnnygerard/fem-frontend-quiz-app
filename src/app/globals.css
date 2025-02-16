@@ -22,10 +22,6 @@
   }
 }
 
-:root {
-  --white-overlay: linear-gradient(#ffffff80, #ffffff80);
-}
-
 @theme {
   --breakpoint-tb: 48em;
   --breakpoint-dt: 90em;
@@ -33,6 +29,7 @@
   --font-sans: var(--font-rubik);
 
   --color-purple: #a729f5;
+  --color-purple-tint: #d394fa;
   --color-white: #ffffff;
   --color-dark-navy: #313e51;
   --color-grey-navy: #626c7f;

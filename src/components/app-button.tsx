@@ -16,7 +16,7 @@ const AppButton = ({ children, className, ...props }: Props) => {
         {...props}
         className={cn(
           "h-14 w-full rounded-xl bg-purple p-3 tb:h-23 tb:rounded-3xl tb:p-8",
-          "hover:bg-(image:--white-overlay)",
+          "transition-colors hover:bg-purple-tint",
           className,
           TW_SHADOW,
         )}
