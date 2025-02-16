@@ -48,7 +48,7 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
             >
               {indexToLetter(index)}
             </Text>
-            <Text className="flex-1">{answer}</Text>
+            <Text className="flex-1 [word-break:break-word]">{answer}</Text>
             {isReadOnly &&
               (isCorrect ? <IconCheckMark /> : isSelected && <IconCross />)}
           </>
