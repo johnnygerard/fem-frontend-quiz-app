@@ -6,7 +6,7 @@ const IconCheckMark = (props: Props) => {
   return (
     <svg
       {...props}
-      className="h-8 w-8 tb:h-10 tb:w-10"
+      className="h-8 w-8 animate-fade-in tb:h-10 tb:w-10"
       viewBox="0 0 32 32"
       fill="none"
     >
