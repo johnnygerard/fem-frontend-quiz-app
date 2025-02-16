@@ -4,12 +4,18 @@ import { cn } from "@/utils/cn";
 import { memo } from "react";
 
 type Props = Readonly<{
+  progressPercentage: number;
   question: string;
   questionIndex: number;
   totalQuestions: number;
 }>;
 
-const QuizChallenge = ({ question, questionIndex, totalQuestions }: Props) => {
+const QuizChallenge = ({
+  progressPercentage,
+  question,
+  questionIndex,
+  totalQuestions,
+}: Props) => {
   return (
     <div
       className={cn(
@@ -27,7 +33,7 @@ const QuizChallenge = ({ question, questionIndex, totalQuestions }: Props) => {
           <Text variant="lg">{question}</Text>
         </p>
       </div>
-      <QuizProgressBar percentage={(questionIndex / totalQuestions) * 100} />
+      <QuizProgressBar percentage={progressPercentage} />
     </div>
   );
 };

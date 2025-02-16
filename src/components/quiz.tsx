@@ -19,6 +19,7 @@ type Props = Readonly<{
 const Quiz = ({ firstChallenge, challenges }: Props) => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const [progressPercentage, setProgressPercentage] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(firstChallenge.answers);
   const [correctAnswer, setCorrectAnswer] = useState(
@@ -28,12 +29,13 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
   // This key is used as a workaround to force a remount of the quiz form to fix
   // multiple focus issues.
   const [formKey, setFormKey] = useState(0);
+  const totalQuestions = challenges.length;
 
   const handleSubmission = (answer?: string): void => {
     if (isReadOnly) {
       const nextIndex = questionIndex + 1;
 
-      if (nextIndex === challenges.length) {
+      if (nextIndex === totalQuestions) {
         setShowScore(true);
         return;
       }
@@ -44,7 +46,10 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
       setCorrectAnswer(correctAnswer);
       setAnswers(shuffle([correctAnswer, ...incorrectAnswers]));
       setFormKey((value) => value + 1);
-    } else if (answer === correctAnswer) setScore((value) => value + 1);
+    } else {
+      setProgressPercentage(((questionIndex + 1) / totalQuestions) * 100);
+      if (answer === correctAnswer) setScore((value) => value + 1);
+    }
 
     setIsReadOnly((value) => !value);
   };
@@ -63,19 +68,20 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
         </h2>
       ) : (
         <QuizChallenge
+          progressPercentage={progressPercentage}
           question={challenges[questionIndex].question}
           questionIndex={questionIndex}
-          totalQuestions={challenges.length}
+          totalQuestions={totalQuestions}
         />
       )}
       <div className="dt:w-141">
         {showScore ? (
-          <QuizScore score={score} totalQuestions={challenges.length} />
+          <QuizScore score={score} totalQuestions={totalQuestions} />
         ) : (
           <QuizForm
             answers={answers}
             correctAnswer={correctAnswer}
-            isLastQuestion={questionIndex === challenges.length - 1}
+            isLastQuestion={questionIndex === totalQuestions - 1}
             isReadOnly={isReadOnly}
             handleSubmission={handleSubmission}
             formKey={formKey}
