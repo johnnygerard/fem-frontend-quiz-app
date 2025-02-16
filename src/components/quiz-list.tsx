@@ -1,18 +1,17 @@
+"use client";
 import AppLink from "@/components/app-link";
 import QuizDisplay from "@/components/quiz-display";
 import { TW_SHADOW } from "@/constants";
-import { QuizMetadata } from "@/types/quiz-metadata";
+import { useContextQuizMetadata } from "@/hooks/use-context-quiz-metadata";
 import { cn } from "@/utils/cn";
 import { memo } from "react";
 
-type Props = Readonly<{
-  list: QuizMetadata[];
-}>;
+const QuizList = () => {
+  const { quizMetadataList } = useContextQuizMetadata();
 
-const QuizList = ({ list }: Props) => {
   return (
     <ul className="flex flex-col gap-3 tb:gap-6">
-      {list.map(({ slug, title }) => (
+      {quizMetadataList.map(({ slug, title }) => (
         <li key={slug}>
           <AppLink
             className={cn(

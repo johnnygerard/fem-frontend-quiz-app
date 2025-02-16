@@ -1,12 +1,9 @@
 import QuizList from "@/components/quiz-list";
 import Text from "@/components/text";
 import { cn } from "@/utils/cn";
-import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import { memo } from "react";
 
 const Page = async () => {
-  const metadata = await readQuizMetadataList();
-
   return (
     <div
       className={cn(
@@ -24,7 +21,7 @@ const Page = async () => {
         </p>
       </hgroup>
       <div className="dt:w-141">
-        <QuizList list={metadata} />
+        <QuizList />
       </div>
     </div>
   );
