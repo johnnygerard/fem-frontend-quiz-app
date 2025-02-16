@@ -1,6 +1,9 @@
 "use client";
+import QuizChallenge from "@/components/quiz-challenge";
 import QuizForm from "@/components/quiz-form";
+import Text from "@/components/text";
 import { QuizData } from "@/types/quiz-data";
+import { cn } from "@/utils/cn";
 import { shuffle } from "@/utils/shuffle";
 import { memo, useState } from "react";
 
@@ -46,18 +49,37 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
   };
 
   return (
-    <div>
+    <div
+      className={cn(
+        "flex max-dt:flex-col dt:justify-between",
+        "gap-10 tb:gap-16 dt:gap-0",
+      )}
+    >
       {showScore ? (
-        `Score: ${score}/${challenges.length}`
+        <h2 className="flex flex-col gap-2">
+          <Text variant="xl">Quiz completed</Text>
+          <Text variant="xl-bold">You scored...</Text>
+        </h2>
       ) : (
-        <QuizForm
-          answers={answers}
-          correctAnswer={correctAnswer}
-          isReadOnly={isReadOnly}
-          handleSubmission={handleSubmission}
-          formKey={formKey}
+        <QuizChallenge
+          question={challenges[questionIndex].question}
+          questionIndex={questionIndex}
+          totalQuestions={challenges.length}
         />
       )}
+      <div className="dt:w-141">
+        {showScore ? (
+          <p>{`Score: ${score}/${challenges.length}`}</p>
+        ) : (
+          <QuizForm
+            answers={answers}
+            correctAnswer={correctAnswer}
+            isReadOnly={isReadOnly}
+            handleSubmission={handleSubmission}
+            formKey={formKey}
+          />
+        )}
+      </div>
     </div>
   );
 };
