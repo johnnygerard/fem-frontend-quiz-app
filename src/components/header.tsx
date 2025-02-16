@@ -9,9 +9,13 @@ const Header = () => {
 
   return (
     <header className="mb-12 flex justify-between dt:mb-21">
-      <h1 className="flex items-center gap-4 tb:gap-6">
+      {quizMetadata ? (
+        <h1 className="flex items-center gap-4 tb:gap-6">
+          <QuizDisplay quizMetadata={quizMetadata} />
+        </h1>
+      ) : (
         <QuizDisplay quizMetadata={quizMetadata} />
-      </h1>
+      )}
       <ThemeSwitcher />
     </header>
   );
