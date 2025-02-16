@@ -23,7 +23,7 @@ const QuizChallenge = ({ question, questionIndex, totalQuestions }: Props) => {
             {`Question ${questionIndex + 1} of ${totalQuestions}`}
           </Text>
         </p>
-        <p className="mt-3 tb:mt-7">
+        <p className="mt-3 tb:mt-7 dt:max-h-80 dt:overflow-auto">
           <Text variant="lg">{question}</Text>
         </p>
       </div>
