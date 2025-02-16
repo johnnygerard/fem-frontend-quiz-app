@@ -14,7 +14,7 @@ const QuizProgressBar = ({ percentage }: Props) => {
     >
       {/* Fill inside the track */}
       <div
-        className="h-full rounded-full bg-purple"
+        className="h-full rounded-full bg-purple transition-[width] duration-300"
         style={{ width: `${percentage}%` }}
       />
     </ProgressBar>
