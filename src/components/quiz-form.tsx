@@ -62,7 +62,7 @@ const QuizForm = ({
           {({ validationDetails }) => (
             <>
               <IconCross />
-              <Text variant="error">
+              <Text variant="error" className="animate-fade-in">
                 {validationDetails.valueMissing
                   ? "Please select an answer"
                   : ""}
