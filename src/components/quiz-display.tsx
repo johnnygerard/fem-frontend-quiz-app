@@ -4,11 +4,11 @@ import Image from "next/image";
 import { memo } from "react";
 
 type Props = Readonly<{
-  quizMetadata: QuizMetadata;
+  quizMetadata: QuizMetadata | null;
 }>;
 
 const QuizDisplay = ({ quizMetadata }: Props) => {
-  return (
+  return quizMetadata ? (
     <>
       <Image
         aria-hidden="true"
@@ -21,6 +21,9 @@ const QuizDisplay = ({ quizMetadata }: Props) => {
       />
       <Text>{quizMetadata.title}</Text>
     </>
+  ) : (
+    // Layout placeholder
+    <div aria-hidden="true" className="h-10 tb:h-14" />
   );
 };
 

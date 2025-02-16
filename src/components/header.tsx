@@ -9,14 +9,9 @@ const Header = () => {
 
   return (
     <header className="mb-12 flex justify-between dt:mb-21">
-      {quizMetadata ? (
-        <h1 className="flex items-center gap-4 tb:gap-6">
-          <QuizDisplay quizMetadata={quizMetadata} />
-        </h1>
-      ) : (
-        // Layout placeholder
-        <div aria-hidden="true" className="h-10 tb:h-14" />
-      )}
+      <h1 className="flex items-center gap-4 tb:gap-6">
+        <QuizDisplay quizMetadata={quizMetadata} />
+      </h1>
       <ThemeSwitcher />
     </header>
   );

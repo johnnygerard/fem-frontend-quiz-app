@@ -15,34 +15,32 @@ const QuizScore = ({ score, totalQuestions }: Props) => {
   const router = useRouter();
 
   return (
-    quizMetadata && (
-      <>
-        <div
+    <>
+      <div
+        className={cn(
+          "flex flex-col items-center bg-white dark:bg-navy",
+          "rounded-xl p-8 tb:rounded-3xl tb:p-12",
+        )}
+      >
+        <div className="flex items-center gap-4 tb:gap-6">
+          <QuizDisplay quizMetadata={quizMetadata} />
+        </div>
+        <span className="my-4 text-[5.5rem] font-medium tb:mt-10 tb:text-[9rem]">
+          {score}
+        </span>
+        <span
           className={cn(
-            "flex flex-col items-center bg-white dark:bg-navy",
-            "rounded-xl p-8 tb:rounded-3xl tb:p-12",
+            "text-grey-navy dark:text-light-bluish",
+            "text-[1.125rem] tb:text-[1.5rem]/[1.5]",
           )}
         >
-          <div className="flex items-center gap-4 tb:gap-6">
-            <QuizDisplay quizMetadata={quizMetadata} />
-          </div>
-          <span className="my-4 text-[5.5rem] font-medium tb:mt-10 tb:text-[9rem]">
-            {score}
-          </span>
-          <span
-            className={cn(
-              "text-grey-navy dark:text-light-bluish",
-              "text-[1.125rem] tb:text-[1.5rem]/[1.5]",
-            )}
-          >
-            {`out of ${totalQuestions}`}
-          </span>
-        </div>
-        <AppButton className="mt-3 tb:mt-8" onPress={() => router.push("/")}>
-          Play Again
-        </AppButton>
-      </>
-    )
+          {`out of ${totalQuestions}`}
+        </span>
+      </div>
+      <AppButton className="mt-3 tb:mt-8" onPress={() => router.push("/")}>
+        Play Again
+      </AppButton>
+    </>
   );
 };
 
