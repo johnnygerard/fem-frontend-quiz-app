@@ -13,7 +13,7 @@ const QuizChallenge = ({ question, questionIndex, totalQuestions }: Props) => {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between dt:h-113 dt:w-116",
+        "flex flex-col dt:h-113 dt:w-116 dt:justify-between",
         "gap-6 tb:gap-10 dt:gap-0",
       )}
     >
