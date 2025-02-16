@@ -21,7 +21,7 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
       <Radio
         className={cn(
           "rounded-xl tb:rounded-3xl",
-          "h-16 gap-4 px-3 tb:h-20 tb:gap-8 dt:h-23 dt:px-5",
+          "gap-4 p-3 tb:gap-8 dt:px-5 dt:py-4.5",
           "flex items-center bg-white dark:bg-navy",
           "inset-ring-purple selected:inset-ring-3",
           isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
