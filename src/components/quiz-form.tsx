@@ -10,6 +10,7 @@ type Props = Readonly<{
   answers: readonly string[];
   correctAnswer: string;
   handleSubmission: (answer?: string) => void;
+  isLastQuestion: boolean;
   isReadOnly: boolean;
   formKey: number;
 }>;
@@ -18,6 +19,7 @@ const QuizForm = ({
   answers,
   correctAnswer,
   handleSubmission,
+  isLastQuestion,
   isReadOnly,
   formKey,
 }: Props) => {
@@ -70,7 +72,11 @@ const QuizForm = ({
         </FieldError>
       </RadioGroup>
       <AppButton className="mt-3 tb:mt-8" type="submit">
-        {isReadOnly ? "Next Question" : "Submit Answer"}
+        {isReadOnly
+          ? isLastQuestion
+            ? "View Score"
+            : "Next Question"
+          : "Submit Answer"}
       </AppButton>
     </Form>
   );

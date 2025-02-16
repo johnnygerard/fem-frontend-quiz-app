@@ -75,6 +75,7 @@ const Quiz = ({ firstChallenge, challenges }: Props) => {
           <QuizForm
             answers={answers}
             correctAnswer={correctAnswer}
+            isLastQuestion={questionIndex === challenges.length - 1}
             isReadOnly={isReadOnly}
             handleSubmission={handleSubmission}
             formKey={formKey}
