@@ -6,6 +6,10 @@
     cursor: pointer;
     outline: none;
   }
+
+  a {
+    outline: none;
+  }
 }
 
 @custom-variant dark {
