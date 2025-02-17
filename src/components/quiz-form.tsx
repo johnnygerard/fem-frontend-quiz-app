@@ -3,7 +3,7 @@ import QuizAnswer from "@/components/quiz-answer";
 import IconCross from "@/components/svg/icon-cross";
 import Text from "@/components/text";
 import { cn } from "@/utils/cn";
-import { memo, useRef } from "react";
+import { memo, useState } from "react";
 import { FieldError, Form, RadioGroup } from "react-aria-components";
 
 type Props = Readonly<{
@@ -23,7 +23,7 @@ const QuizForm = ({
   isReadOnly,
   formKey,
 }: Props) => {
-  const selectedAnswer = useRef("");
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   return (
     <Form
@@ -31,7 +31,15 @@ const QuizForm = ({
       className="relative mb-11 tb:mb-18"
       onSubmit={(event) => {
         event.preventDefault();
-        handleSubmission(isReadOnly ? undefined : selectedAnswer.current);
+
+        if (isReadOnly) {
+          setSelectedAnswer(null);
+          handleSubmission();
+          return;
+        }
+
+        if (selectedAnswer === null) throw new Error("Impossible state");
+        handleSubmission(selectedAnswer);
       }}
     >
       <RadioGroup
@@ -39,9 +47,8 @@ const QuizForm = ({
         aria-label="Quiz Answers"
         isRequired
         isReadOnly={isReadOnly}
-        onChange={(value: string) => {
-          selectedAnswer.current = value;
-        }}
+        value={selectedAnswer}
+        onChange={setSelectedAnswer}
       >
         {answers.map((answer, index) => (
           <QuizAnswer
