@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://example.com/placeholder",
+    url: "https://fem-frontend-quiz-app-jgerard.vercel.app",
     siteName: APP_NAME,
     title: APP_NAME,
     description: DESCRIPTION,
