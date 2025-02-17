@@ -2,11 +2,27 @@ import Quiz from "@/components/quiz";
 import { QuizData } from "@/types/quiz-data";
 import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import { shuffle } from "@/utils/shuffle";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cwd } from "node:process";
 import { memo } from "react";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> => {
+  const slug = (await params).slug;
+  const metadata = (await readQuizMetadataList()).find(
+    (metadata) => metadata.slug === slug,
+  );
+
+  return {
+    title: `${metadata?.title ?? "Not Found"} Quiz`,
+  };
+};
 
 // Dynamic segments not included in generateStaticParams will return a 404.
 export const dynamicParams = false;
