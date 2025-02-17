@@ -1,0 +1,68 @@
+[
+  {
+    "question": "What does CSS stand for?",
+    "correctAnswer": "Cascading Style Sheets",
+    "incorrectAnswers": [
+      "Colorful Style Sheets",
+      "Computer Style Sheets",
+      "Creative Style Sheets"
+    ]
+  },
+  {
+    "question": "Which HTML attribute is used to define inline styles?",
+    "correctAnswer": "style",
+    "incorrectAnswers": ["styles", "class", "font-style"]
+  },
+  {
+    "question": "How do you insert a comment in a CSS file?",
+    "correctAnswer": "/* this is a comment */",
+    "incorrectAnswers": [
+      "// this is a comment //",
+      "-- this is a comment --",
+      "<!-- this is a comment -->"
+    ]
+  },
+  {
+    "question": "Which property is used to change the background color of an element?",
+    "correctAnswer": "background-color",
+    "incorrectAnswers": ["color", "bgcolor", "background"]
+  },
+  {
+    "question": "How do you apply a style to all <p> elements?",
+    "correctAnswer": "p { }",
+    "incorrectAnswers": [".p { }", "#p { }", "all.p { }"]
+  },
+  {
+    "question": "Which property is used to change the font of an element?",
+    "correctAnswer": "font-family",
+    "incorrectAnswers": ["font-style", "text-style", "typeface"]
+  },
+  {
+    "question": "How do you make each word in a text start with a capital letter?",
+    "correctAnswer": "text-transform: capitalize",
+    "incorrectAnswers": [
+      "text-transform: uppercase",
+      "text-style: capital",
+      "font-transform: capitalize"
+    ]
+  },
+  {
+    "question": "How do you select an element with the class name 'header'?",
+    "correctAnswer": ".header",
+    "incorrectAnswers": ["#header", "header", "*header"]
+  },
+  {
+    "question": "What is the default value of the 'position' property?",
+    "correctAnswer": "static",
+    "incorrectAnswers": ["relative", "fixed", "absolute"]
+  },
+  {
+    "question": "What is the purpose of the z-index property in CSS?",
+    "correctAnswer": "To specify the stack order of an element",
+    "incorrectAnswers": [
+      "To count the number of elements",
+      "To set the magnification level of an element",
+      "To create a zoom effect"
+    ]
+  }
+]

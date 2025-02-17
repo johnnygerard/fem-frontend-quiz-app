@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What does 'WCAG' stand for?",
+    "correctAnswer": "Web Content Accessibility Guidelines",
+    "incorrectAnswers": [
+      "Web Compliance Accessibility Guide",
+      "Web Content Accessibility Goals",
+      "Website Compliance and Accessibility Guidelines"
+    ]
+  },
+  {
+    "question": "Which element is used to provide alternative text for images for screen reader users?",
+    "correctAnswer": "<img alt='description'>",
+    "incorrectAnswers": ["<alt>", "<figcaption>", "<description>"]
+  },
+  {
+    "question": "What does ARIA stand for in web development?",
+    "correctAnswer": "Accessible Rich Internet Applications",
+    "incorrectAnswers": [
+      "Advanced Responsive Internet Assistance",
+      "Accessible Responsive Internet Applications",
+      "Automated Responsive Internet Actions"
+    ]
+  },
+  {
+    "question": "Which of the following is not a principle of the WCAG?",
+    "correctAnswer": "Dependable",
+    "incorrectAnswers": ["Perceivable", "Operable", "Understandable"]
+  },
+  {
+    "question": "Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?",
+    "correctAnswer": "4.5:1",
+    "incorrectAnswers": ["3:1", "7:1", "2:1"]
+  },
+  {
+    "question": "Which of the following elements is inherently focusable, meaning it can receive focus without a 'tabindex' attribute?",
+    "correctAnswer": "<a href='...'>",
+    "incorrectAnswers": ["<div>", "<span>", "<p>"]
+  },
+  {
+    "question": "What is the purpose of the 'lang' attribute in an HTML page?",
+    "correctAnswer": "To indicate the language of the page content",
+    "incorrectAnswers": [
+      "To specify the scripting language",
+      "To define the character set",
+      "To declare a language pack"
+    ]
+  },
+  {
+    "question": "Which guideline ensures that content is accessible by keyboard as well as by mouse?",
+    "correctAnswer": "Keyboard Accessible",
+    "incorrectAnswers": [
+      "Mouse Independence",
+      "Device Independence",
+      "Operable Controls"
+    ]
+  },
+  {
+    "question": "What is the role of 'skip navigation' links in web accessibility?",
+    "correctAnswer": "To skip over primary navigation to the main content",
+    "incorrectAnswers": [
+      "To provide shortcuts to different sections of the website",
+      "To help users skip unwanted sections like advertisements",
+      "To bypass broken links in the navigation"
+    ]
+  },
+  {
+    "question": "Which of these tools can help in checking the accessibility of a website?",
+    "correctAnswer": "Google Lighthouse",
+    "incorrectAnswers": ["W3C Validator", "CSS Validator", "JavaScript Console"]
+  }
+]

@@ -4,29 +4,48 @@
 @layer base {
   button:enabled {
     cursor: pointer;
+    outline: none;
+  }
+
+  a {
+    outline: none;
   }
 }
 
 @custom-variant dark {
+  &:root[data-theme="dark"],
+  :root[data-theme="dark"] & {
+    @slot;
+  }
+
+  &:root:not([data-theme]),
   :root:not([data-theme]) & {
     @media (prefers-color-scheme: dark) {
       @slot;
     }
   }
+}
 
-  :root[data-theme="dark"] & {
-    @slot;
+/* Disable all animations when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    @apply !scroll-auto;
+  }
+
+  * {
+    @apply !animate-none !transition-none;
   }
 }
 
 @theme {
   --breakpoint-tb: 48em;
-  --breakpoint-dt: 64em;
+  --breakpoint-dt: 90em;
 
   --font-sans: var(--font-rubik);
 
   --color-purple: #a729f5;
-  --color-pure-white: #ffffff;
+  --color-purple-tint: #d394fa;
+  --color-white: #ffffff;
   --color-dark-navy: #313e51;
   --color-grey-navy: #626c7f;
   --color-light-grey: #f4f6fa;
@@ -36,4 +55,26 @@
   --color-red: #ee5454;
 
   --spacing: 0.25rem;
+
+  --shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  --shadow-dark: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  --animate-fade-in: fadeIn var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  @keyframes focusRing {
+    from {
+      outline-color: transparent;
+    }
+  }
+  --animate-focus-ring: focusRing var(--default-transition-duration)
+    var(--default-transition-timing-function);
 }

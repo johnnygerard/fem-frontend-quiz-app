@@ -1,10 +1,12 @@
 import { loadTheme } from "@/app/actions";
-import AppRouterProvider from "@/components/app-router-provider";
 import Background from "@/components/background-circles";
-import ThemeProvider from "@/components/theme-provider";
-import ThemeSwitcher from "@/components/theme-switcher";
+import Header from "@/components/header";
+import AppRouterProvider from "@/providers/app-router-provider";
+import QuizMetadataProvider from "@/providers/quiz-metadata-provider";
+import ThemeProvider from "@/providers/theme-provider";
 import { THEME } from "@/types/theme";
-import { clsx } from "clsx";
+import { cn } from "@/utils/cn";
+import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
       rel: "icon",
       sizes: "32x32",
       type: "image/png",
-      url: "/images/favicon-32x32.png",
+      url: "/image/favicon-32x32.png",
     },
   ],
   openGraph: {
@@ -50,27 +52,31 @@ type Props = Readonly<{
 
 const RootLayout = async ({ children }: Props) => {
   const theme = await loadTheme();
+  const quizMetadataList = await readQuizMetadataList();
 
   return (
     <html
       data-theme={theme === THEME.SYSTEM ? null : theme}
-      className={clsx(rubik.variable, "font-sans antialiased")}
+      className={cn(
+        rubik.variable,
+        "font-sans leading-none font-normal not-italic antialiased",
+        "text-dark-navy dark:text-white",
+      )}
       lang="en-US"
     >
       <body
-        className={clsx(
-          "dt:py-20 dt:px-35 tb:py-10 tb:px-16 px-6 py-4",
-          "bg-light-grey dark:bg-dark-navy min-h-screen",
+        className={cn(
+          "min-w-min px-6 py-4 tb:px-16 tb:py-10 dt:px-35 dt:py-20",
+          "bg-light-grey dark:bg-dark-navy",
         )}
       >
         <AppRouterProvider>
           <ThemeProvider initialTheme={theme}>
-            <Background />
-            <header className="flex justify-between">
-              <div className="tb:h-14 h-10"></div>
-              <ThemeSwitcher />
-            </header>
-            <main>{children}</main>
+            <QuizMetadataProvider quizMetadataList={quizMetadataList}>
+              <Background />
+              <Header />
+              <main>{children}</main>
+            </QuizMetadataProvider>
           </ThemeProvider>
         </AppRouterProvider>
         <noscript>
@@ -86,6 +92,7 @@ const RootLayout = async ({ children }: Props) => {
               color: "#d32f2f",
               borderBottom: "2px solid currentColor",
               textAlign: "center",
+              lineHeight: 1.5,
             }}
             role="alert"
           >

@@ -1,4 +1,4 @@
-import { clsx } from "clsx";
+import { cn } from "@/utils/cn";
 import { memo } from "react";
 
 const BackgroundCircles = () => {
@@ -10,15 +10,15 @@ const BackgroundCircles = () => {
       {/* Circle in the upper left corner */}
       <div
         aria-hidden={true}
-        className={clsx(
+        className={cn(
+          "-top-41 -left-150 border-[9rem] tb:-top-111 tb:-left-135 dt:-top-103",
           className,
-          "tb:-left-135 tb:-top-111 dt:-top-103 -top-41 -left-150 border-[9rem]",
         )}
       />
       {/* Circle in the lower right corner */}
       <div
         aria-hidden={true}
-        className={clsx(className, "dt:border-[9rem] -right-109 -bottom-92")}
+        className={cn("-right-109 -bottom-92 dt:border-[9rem]", className)}
       />
     </>
   );

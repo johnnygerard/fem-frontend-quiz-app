@@ -1,0 +1,76 @@
+[
+  {
+    "question": "Which syntax is correct to output 'Hello World' in an alert box?",
+    "correctAnswer": "alert('Hello World');",
+    "incorrectAnswers": [
+      "alertBox('Hello World');",
+      "msg('Hello World');",
+      "msgBox('Hello World');"
+    ]
+  },
+  {
+    "question": "How do you call a function named 'myFunction'?",
+    "correctAnswer": "myFunction()",
+    "incorrectAnswers": [
+      "call function myFunction()",
+      "call myFunction()",
+      "execute myFunction()"
+    ]
+  },
+  {
+    "question": "How to write an IF statement in JavaScript?",
+    "correctAnswer": "if (i == 5)",
+    "incorrectAnswers": ["if i = 5 then", "if i == 5", "if i = 5"]
+  },
+  {
+    "question": "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
+    "correctAnswer": "if (i != 5)",
+    "incorrectAnswers": ["if (i <> 5)", "if i =! 5 then", "if i not = 5"]
+  },
+  {
+    "question": "How does a FOR loop start?",
+    "correctAnswer": "for (i = 0; i <= 5; i++)",
+    "incorrectAnswers": [
+      "for (i = 0; i <= 5)",
+      "for i = 1 to 5",
+      "for (i <= 5; i++)"
+    ]
+  },
+  {
+    "question": "How can you add a single-line comment in JavaScript?",
+    "correctAnswer": "//This is a single-line comment",
+    "incorrectAnswers": [
+      "'This is a single-line comment",
+      "<!--This is a single-line comment-->",
+      "/* This is a single-line comment */"
+    ]
+  },
+  {
+    "question": "What is the correct way to write a JavaScript array?",
+    "correctAnswer": "var colors = ['red', 'green', 'blue']",
+    "incorrectAnswers": [
+      "var colors = (1:'red', 2:'green', 3:'blue')",
+      "var colors = 'red', 'green', 'blue'",
+      "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')"
+    ]
+  },
+  {
+    "question": "How do you find the number with the highest value of x and y?",
+    "correctAnswer": "Math.max(x, y)",
+    "incorrectAnswers": ["Math.ceil(x, y)", "top(x, y)", "Math.highest(x, y)"]
+  },
+  {
+    "question": "Which operator is used to assign a value to a variable?",
+    "correctAnswer": "=",
+    "incorrectAnswers": ["-", "*", "x"]
+  },
+  {
+    "question": "What is the correct way to write a JavaScript object?",
+    "correctAnswer": "var person = {firstName: 'John', lastName: 'Doe'};",
+    "incorrectAnswers": [
+      "var person = {firstName = 'John', lastName = 'Doe'};",
+      "var person = (firstName: 'John', lastName: 'Doe');",
+      "var person = (firstName = 'John', lastName = 'Doe');"
+    ]
+  }
+]
