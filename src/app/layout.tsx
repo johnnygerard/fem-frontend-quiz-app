@@ -24,6 +24,7 @@ const APP_NAME = "Frontend Quiz";
 const DESCRIPTION = "Frontend Mentor challenge: Frontend Quiz app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fem-frontend-quiz-app-jgerard.vercel.app"),
   title: {
     template: `%s | ${APP_NAME}`,
     default: APP_NAME,
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://fem-frontend-quiz-app-jgerard.vercel.app",
+    url: "/",
     siteName: APP_NAME,
     title: APP_NAME,
     description: DESCRIPTION,
