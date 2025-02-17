@@ -55,9 +55,6 @@
   --shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
   --shadow-dark: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
 
-  --animate-fade-in: fadeIn var(--default-transition-duration)
-    var(--default-transition-timing-function);
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -66,4 +63,14 @@
       opacity: 1;
     }
   }
+  --animate-fade-in: fadeIn var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  @keyframes focusRing {
+    from {
+      outline-color: transparent;
+    }
+  }
+  --animate-focus-ring: focusRing var(--default-transition-duration)
+    var(--default-transition-timing-function);
 }
