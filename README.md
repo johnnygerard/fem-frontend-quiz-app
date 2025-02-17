@@ -32,6 +32,20 @@ To learn how to use a GitHub template repository, check out [Creating a reposito
 - Linter: [ESLint](https://eslint.org/)
 - AI assistant: [GitHub Copilot](https://github.com/features/copilot)
 
+## Screenshots
+
+### Mobile
+
+![mobile screenshot](docs/screenshots/mobile.avif)
+
+### Tablet
+
+![tablet screenshot](docs/screenshots/tablet.avif)
+
+### Desktop
+
+![desktop screenshot](docs/screenshots/desktop.avif)
+
 ## Copyright
 
 © 2025 Johnny Gérard
