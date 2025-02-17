@@ -33,15 +33,13 @@ const Page = async ({ params }: Props) => {
   const { correctAnswer, incorrectAnswers } = challenges[0];
 
   return (
-    <div>
-      <Quiz
-        firstChallenge={{
-          correctAnswer,
-          answers: shuffle([correctAnswer, ...incorrectAnswers]),
-        }}
-        challenges={challenges}
-      />
-    </div>
+    <Quiz
+      firstChallenge={{
+        correctAnswer,
+        answers: shuffle([correctAnswer, ...incorrectAnswers]),
+      }}
+      challenges={challenges}
+    />
   );
 };
 
