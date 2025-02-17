@@ -52,7 +52,7 @@ const QuizForm = ({
       >
         {answers.map((answer, index) => (
           <QuizAnswer
-            key={index}
+            key={`${correctAnswer}-${answer}-${index}`}
             index={index}
             answer={answer}
             isCorrect={answer === correctAnswer}
