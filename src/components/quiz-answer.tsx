@@ -20,11 +20,14 @@ const QuizAnswer = ({ answer, index, isCorrect, isReadOnly }: Props) => {
     <AppFocusRing>
       <Radio
         className={cn(
-          "rounded-xl transition-colors tb:rounded-3xl",
+          "rounded-xl transition-shadow tb:rounded-3xl",
           "gap-4 p-3 tb:gap-8 dt:px-5 dt:py-4.5",
           "flex items-center bg-white dark:bg-navy",
-          "inset-ring-purple selected:inset-ring-3",
-          isReadOnly && (isCorrect ? "inset-ring-green" : "inset-ring-red"),
+          "inset-ring-3 inset-ring-transparent selected:inset-ring-purple",
+          isReadOnly &&
+            (isCorrect
+              ? "selected:inset-ring-green"
+              : "selected:inset-ring-red"),
           !isReadOnly && "cursor-pointer",
           TW_SHADOW,
         )}
