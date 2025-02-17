@@ -22,6 +22,17 @@
   }
 }
 
+/* Disable all animations when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    @apply !scroll-auto;
+  }
+
+  * {
+    @apply !animate-none !transition-none;
+  }
+}
+
 @theme {
   --breakpoint-tb: 48em;
   --breakpoint-dt: 90em;
