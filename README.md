@@ -1,10 +1,11 @@
-# Next.js 15 Starter
+# Frontend Mentor | Frontend Quiz app
 
-This starter repository facilitates the creation of new Next.js projects using the configuration described below.  
-To learn how to use a GitHub template repository, check out [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+This is my solution to
+the [Frontend Quiz app challenge](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU)
+from [Frontend Mentor](https://www.frontendmentor.io/).
 
 ![project status](https://img.shields.io/badge/status-work%20in%20progress-red?style=for-the-badge)
-[![live demo](https://img.shields.io/badge/live_demo-blue?style=for-the-badge)](https://starter-nextjs-15.vercel.app/)
+[![live site](https://img.shields.io/badge/live_site-blue?style=for-the-badge)](https://fem-frontend-quiz-app-jgerard.vercel.app/)
 ![Lighthouse report](https://img.shields.io/badge/lighthouse-%23F44B21?style=for-the-badge&logo=lighthouse&logoColor=fff)
 
 ## Tech Stack
@@ -18,11 +19,6 @@ To learn how to use a GitHub template repository, check out [Creating a reposito
 ### Backend
 
 - **CDN**: Static assets served from [Vercel Edge Network](https://vercel.com/docs/edge-network/overview).
-
-### Testing
-
-- [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ## Dev Environment & Tools
 
