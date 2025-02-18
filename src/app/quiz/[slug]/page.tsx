@@ -2,10 +2,27 @@ import Quiz from "@/components/quiz";
 import { QuizData } from "@/types/quiz-data";
 import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import { shuffle } from "@/utils/shuffle";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cwd } from "node:process";
 import { memo } from "react";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> => {
+  const slug = (await params).slug;
+  const metadata = (await readQuizMetadataList()).find(
+    (metadata) => metadata.slug === slug,
+  );
+
+  return {
+    title: `${metadata?.title ?? "Not Found"} Quiz`,
+  };
+};
 
 // Dynamic segments not included in generateStaticParams will return a 404.
 export const dynamicParams = false;
@@ -24,7 +41,7 @@ const Page = async ({ params }: Props) => {
     (metadata) => metadata.slug === slug,
   );
 
-  if (metadata === undefined) throw new Error("Quiz not found");
+  if (metadata === undefined) notFound();
 
   const path = join(cwd(), `data/quiz/${slug}.json`);
   const json = await readFile(path, "utf8");
@@ -32,15 +49,13 @@ const Page = async ({ params }: Props) => {
   const { correctAnswer, incorrectAnswers } = challenges[0];
 
   return (
-    <div>
-      <Quiz
-        firstChallenge={{
-          correctAnswer,
-          answers: shuffle([correctAnswer, ...incorrectAnswers]),
-        }}
-        challenges={challenges}
-      />
-    </div>
+    <Quiz
+      firstChallenge={{
+        correctAnswer,
+        answers: shuffle([correctAnswer, ...incorrectAnswers]),
+      }}
+      challenges={challenges}
+    />
   );
 };
 
