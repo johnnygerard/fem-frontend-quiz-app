@@ -4,9 +4,9 @@ This is my solution to
 the [Frontend Quiz app challenge](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU)
 from [Frontend Mentor](https://www.frontendmentor.io/).
 
-![project status](https://img.shields.io/badge/status-work%20in%20progress-red?style=for-the-badge)
+[![project status](https://img.shields.io/badge/status-solution_published-success?style=for-the-badge)](https://www.frontendmentor.io/solutions/frontend-quiz-app-with-react-aria-BAqGb3OB-g)
 [![live site](https://img.shields.io/badge/live_site-blue?style=for-the-badge)](https://fem-frontend-quiz-app-jgerard.vercel.app/)
-![Lighthouse report](https://img.shields.io/badge/lighthouse-%23F44B21?style=for-the-badge&logo=lighthouse&logoColor=fff)
+[![Lighthouse report](https://img.shields.io/badge/lighthouse-%23F44B21?style=for-the-badge&logo=lighthouse&logoColor=fff)](https://googlechrome.github.io/lighthouse/viewer/?gist=7f2822315889af9c1855d6b59c16539b)
 
 ## Tech Stack
 
