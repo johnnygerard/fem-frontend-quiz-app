@@ -1,13 +1,11 @@
-import { loadTheme } from "@/app/actions";
 import Background from "@/components/background-circles";
 import Header from "@/components/header";
 import AppRouterProvider from "@/providers/app-router-provider";
 import QuizMetadataProvider from "@/providers/quiz-metadata-provider";
-import ThemeProvider from "@/providers/theme-provider";
-import { THEME } from "@/types/theme";
 import { cn } from "@/utils/cn";
 import { readQuizMetadataList } from "@/utils/read-quiz-metadata-list";
 import type { Metadata } from "next";
+import { loadTheme, ThemeProvider } from "next-theme-provider";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import { memo, ReactNode } from "react";
@@ -57,7 +55,7 @@ const RootLayout = async ({ children }: Props) => {
 
   return (
     <html
-      data-theme={theme === THEME.SYSTEM ? null : theme}
+      data-theme={theme}
       className={cn(
         rubik.variable,
         "font-sans leading-none font-normal not-italic antialiased",

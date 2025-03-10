@@ -2,29 +2,22 @@
 import AppFocusRing from "@/components/app-focus-ring";
 import IconMoon from "@/components/svg/icon-moon";
 import IconSun from "@/components/svg/icon-sun";
-import { useAppTheme } from "@/hooks/use-app-theme";
-import { THEME } from "@/types/theme";
 import { cn } from "@/utils/cn";
+import { useThemeContext } from "next-theme-provider";
 import { memo } from "react";
 import { Switch } from "react-aria-components";
 
 const ThemeSwitcher = () => {
-  const { systemTheme, theme, setTheme } = useAppTheme();
-  const isDark =
-    theme === THEME.DARK ||
-    (theme === THEME.SYSTEM && systemTheme === THEME.DARK);
+  const { toggleTheme } = useThemeContext();
 
   return (
     <div className="flex items-center gap-2 text-grey-navy tb:gap-4 dark:text-white">
-      <IconSun aria-hidden={true} className="h-4 w-4 tb:h-6 tb:w-6" />
+      <IconSun aria-hidden className="size-4 tb:size-6" />
       <AppFocusRing>
         <Switch
           aria-label="Dark mode"
           className="h-5 w-8 cursor-pointer rounded-full bg-purple p-1 tb:h-7 tb:w-12"
-          isSelected={isDark}
-          onChange={() => {
-            setTheme(isDark ? THEME.LIGHT : THEME.DARK);
-          }}
+          onChange={toggleTheme}
         >
           {/* Switch handle */}
           <span
@@ -35,7 +28,7 @@ const ThemeSwitcher = () => {
           />
         </Switch>
       </AppFocusRing>
-      <IconMoon aria-hidden={true} className="h-4 w-4 tb:h-6 tb:w-6" />
+      <IconMoon aria-hidden className="size-4 tb:size-6" />
     </div>
   );
 };
